@@ -7,3 +7,63 @@
 .constructorElement {
   margin-left: 64px; 
 }
+
+.element {
+  height: 464px;
+  overflow-y: scroll;
+  margin: 16px 0;
+}
+
+.ingredientWrapper {
+  display: flex;
+  align-items: center; 
+  margin: 16px 0;
+}
+
+.ingredientWrapper:first-child {
+  margin-top: 0;
+}
+
+.ingredientWrapper:last-child {
+  margin-bottom: 0;
+}
+
+.element::-webkit-scrollbar {
+  width: 8px;
+  background-color: #2F2F37;
+}
+
+.element::-webkit-scrollbar-thumb {
+	background-color: #8585AD;	
+}
+
+.ingredient {
+  margin-left: 8px;
+}
+
+.bunTop {
+  display: flex;
+  justify-content: center;
+}
+
+.totalPrice {
+  display: flex;
+  align-items: center;
+  font-size: 48px;
+  line-height: 36px;
+  padding-right: 40px;
+}
+
+.totalPrice svg{
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-height: 64px;
+  align-items: center;
+  margin-top: 40px;
+}

@@ -7,9 +7,8 @@
 }
 
 .itemsWrapper {
-  height: 450px;
+  height: 664px;
   overflow-y: scroll;
-  scrollbar-color: #D4AA70 #e4e4e4;
 }
 
 .itemsWrapper::-webkit-scrollbar {

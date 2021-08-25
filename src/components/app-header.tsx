@@ -9,7 +9,7 @@ export const AppHeader: React.FC<AppHeaderProps> = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}> 
-        <a href="#" className={styles.navItem}><BurgerIcon type="primary" />Конструктор</a>
+        <a href="#" className={styles.navItemActive}><BurgerIcon type="primary" />Конструктор</a>
         <a href="#" className={styles.navItem}><ListIcon type="secondary" />Лента заказов</a>
         <div className={styles.logo}>
           <Logo />

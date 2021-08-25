@@ -11,6 +11,20 @@
   align-items: center;
 }
 
+.navItemActive {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  margin-right: 8px;
+  line-height: 24px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.navItemActive svg {
+  margin-right: 8px;
+}
+
 .navItem a {
   line-height: 24px;
   font-size: 16px;
