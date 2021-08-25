@@ -1,0 +1,9 @@
+.burgerConstructor {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.constructorElement {
+  margin-left: 64px; 
+}
