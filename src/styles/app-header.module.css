@@ -1,0 +1,48 @@
+.header {
+  width: 100%;
+  background-color: #1C1C21;
+}
+
+.nav {
+  height: 88px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.navItemActive {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  margin-right: 8px;
+  line-height: 24px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.navItemActive svg {
+  margin-right: 8px;
+}
+
+.navItem a {
+  line-height: 24px;
+  font-size: 16px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  color: #8585AD;
+  padding: 16px 20px;
+  margin-right: 8px;
+}
+
+.navItem svg {
+  padding-right: 8px;
+}
+
+.logo {
+  margin-left: 112px;
+  margin-right: 288px;
+}
