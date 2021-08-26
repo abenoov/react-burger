@@ -33,7 +33,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = () => {
                 key={filteredItems._id} 
                 className={styles.buns}
               >
-                <img src={filteredItems.image} className="pl-4 pr-4" />
+                <img alt="bun avatar" src={filteredItems.image} className="pl-4 pr-4" />
                 <p className={styles.price}>{filteredItems.price} <CurrencyIcon type="primary" /></p>
                 <p className={styles.name}>{filteredItems.name}</p>
               </div>
@@ -48,7 +48,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = () => {
                 key={filteredItems._id} 
                 className={styles.buns}
               >
-                <img src={filteredItems.image} className="pl-4 pr-4" />
+                <img alt="sauce avatar"  src={filteredItems.image} className="pl-4 pr-4" />
                 <p className={styles.price}>{filteredItems.price} <CurrencyIcon type="primary" /></p>
                 <p className={styles.name}>{filteredItems.name}</p>
               </div>
@@ -63,7 +63,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = () => {
                 key={filteredItems._id} 
                 className={styles.buns}
               >
-                <img src={filteredItems.image} className="pl-4 pr-4" />
+                <img alt="main avatar"  src={filteredItems.image} className="pl-4 pr-4" />
                 <p className={styles.price}>{filteredItems.price} <CurrencyIcon type="primary" /></p>
                 <p className={styles.name}>{filteredItems.name}</p>
               </div>

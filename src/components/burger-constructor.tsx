@@ -13,7 +13,7 @@ export const BurgerConstructor: React.FC<BurgerConstructorProps> = () => {
         <ConstructorElement
           type="top"
           isLocked={true}
-          text="Краторная булка N-200i"
+          text="Краторная булка N-200i (верх)"
           price={1255}
           thumbnail="https://code.s3.yandex.net/react/code/bun-02.png"
         />
@@ -21,11 +21,10 @@ export const BurgerConstructor: React.FC<BurgerConstructorProps> = () => {
       <div className={styles.element}>
         {
           data.map((item, index) => index !== 0 && (
-            <div className={styles.ingredientWrapper}>
+            <div key={item._id} className={styles.ingredientWrapper}>
               <DragIcon type="primary" />
               <span className={styles.ingredient}>
                 <ConstructorElement
-                  key={item._id}
                   text={item.name}
                   price={item.price}
                   thumbnail={item.image}
