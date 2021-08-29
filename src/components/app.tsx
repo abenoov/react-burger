@@ -11,32 +11,37 @@ const apiURL = "https://norma.nomoreparties.space/api/ingredients";
 export type AppProps = {}
 
 export const App: React.FC<AppProps> = () => {
-  const [state, setState] = useState({
-    isLoading: false,
-    hasError: false,
-    data: []
-  })
-
-  useEffect(() => {
-    getingredients();
-  }, []);
-
-  const getingredients = () => {
-    setState({ ...state, hasError: false, isLoading: true });
+  const [ingredients, setIngredients] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const fetchData = () => {
     fetch(apiURL)
-      .then(res => res.json())
-      .then(data => setState({ ...state, data, isLoading: false }))
-      .catch(e => {
-        setState({ ...state, hasError: true, isLoading: false });
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setIngredients(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
       });
   };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  console.log("ingredients", ingredients)
 
   return (
     <>
       <AppHeader/>
         <main className={styles.main} >
-          <BurgerIngredients/>
-          <BurgerConstructor/>
+          {ingredients.success && <BurgerIngredients data={ingredients.data} />}
+          {ingredients.success && <BurgerConstructor data={ingredients.data} />}
+          {isError && <div>Error fetching data.</div>}
         </main>
     </>
   );

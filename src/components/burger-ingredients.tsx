@@ -1,15 +1,17 @@
 import React from "react";
-import { Tab, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import { data } from '../utils/data.js';
 
+import { Tab, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from '../styles/burger-ingredients.module.css';
 
+export type BurgerIngredientsProps = {
+  data: any
+}
 
-export type BurgerIngredientsProps = {}
-
-export const BurgerIngredients: React.FC<BurgerIngredientsProps> = () => {
+export const BurgerIngredients: React.FC<BurgerIngredientsProps> = ({ 
+  data
+}) => {
   const [current, setCurrent] = React.useState('one')
-
+  console.log(data);
   return (
     <section className={styles.burgerIngredients}>
       <h1 className="text text_type_main-large mb-5">Соберите бургер</h1>
@@ -28,7 +30,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = () => {
         <p className="text text_type_main-medium mb-6">Булки</p>
         <div className={styles.bunsWrapper}>
           {
-            data.filter(item => item.type === "bun").map(filteredItems => (
+            data.filter((item: any) => item.type === "bun").map((filteredItems: any) => (
               <div
                 key={filteredItems._id} 
                 className={styles.buns}
@@ -43,7 +45,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = () => {
         <p className="text text_type_main-medium mb-6">Соусы</p>
         <div className={styles.bunsWrapper}>
           {
-            data.filter(item => item.type === "sauce").map(filteredItems => (
+            data.filter((item:any) => item.type === "sauce").map((filteredItems: any) => (
               <div
                 key={filteredItems._id} 
                 className={styles.buns}
@@ -58,7 +60,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = () => {
         <p className="text text_type_main-medium mb-6">Начиники</p>
         <div className={styles.bunsWrapper}>
           {
-            data.filter(item => item.type === "main").map(filteredItems => (
+            data.filter((item: any) => item.type === "main").map((filteredItems: any) => (
               <div
                 key={filteredItems._id} 
                 className={styles.buns}
