@@ -3,10 +3,13 @@ import { useEffect } from 'react';
 
 import styles from '../styles/modal-overlay.module.css';
 
-export type ModalOverlayProps = {onCloseModal: any}
+export type ModalOverlayProps = {
+  onCloseModal: any
+}
 
-export const ModalOverlay: React.FC<ModalOverlayProps> = ({onCloseModal}) => {
-
+export const ModalOverlay: React.FC<ModalOverlayProps> = ({
+  onCloseModal
+}) => {
 useEffect(() => {
   const close = (e:any) => {
     if(e.keyCode === 27){

@@ -7,10 +7,11 @@ import ModalOverlay from './modal-overlay';
 export type ModalProps = {
   children: any,
   open: boolean,
-  onCloseModal: any
+  onCloseModal: any,
+  title: String
 }
 
-export const Modal: React.FC<ModalProps> = ({open, children, onCloseModal}) => {
+export const Modal: React.FC<ModalProps> = ({open, children, onCloseModal, title}) => {
   if (!open) return null
 
   const modalRoot = document.getElementById('portal');
@@ -19,8 +20,16 @@ export const Modal: React.FC<ModalProps> = ({open, children, onCloseModal}) => {
     <>
       <ModalOverlay onCloseModal={onCloseModal}/>
       <div className={styles.modal}>
-        <button onClick={onCloseModal}>Close Modal</button>
-        {/* <div>{children}</div> */}
+        <div className={styles.modalHeader}>
+          <h4 className={styles.modalTitle}>{title}</h4>
+          <img 
+            alt="close icon"
+            src="../../images/close-icon.svg"
+            onClick={onCloseModal}
+            className={styles.closeIcon}
+          />
+        </div>
+        {children}
       </div>
     </>,
    modalRoot) : null);  

@@ -1,8 +1,26 @@
 .modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  background-color: #fff;
-  padding: 50px;
+  top: 3%;
+  left: 30%;
+  background-color: #1C1C21;
+  padding: 60px 40px; 
   z-index: 1000;
+  border-radius: 40px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalTitle {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.closeIcon {
+  cursor: pointer;
 }

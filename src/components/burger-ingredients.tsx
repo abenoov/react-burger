@@ -2,7 +2,6 @@ import React from "react";
 
 import { Tab, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from '../styles/burger-ingredients.module.css';
-
 // import { data } from '../utils/data';
 
 export type BurgerIngredientsProps = {

@@ -8,6 +8,7 @@ import { ConstructorElement,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Modal } from './modal';
 import styles from '../styles/burger-constructor.module.css';
+import OrderDetails from "./order-details";
 // import { data } from '../utils/data';
 
 
@@ -70,8 +71,8 @@ export const BurgerConstructor: React.FC<BurgerConstructorProps> = ({
             <CurrencyIcon type="primary" />
           </p>
           <Button onClick={handleOpenModal} type="primary" size="large">Оформить заказ</Button>
-          <Modal open={isOpen} onCloseModal={handleCloseModal}>
-                BurgerConstructor...
+          <Modal title="" open={isOpen} onCloseModal={handleCloseModal}>
+            <OrderDetails />
           </Modal>
         </div>
     </section>
