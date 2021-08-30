@@ -8,16 +8,26 @@ import { ConstructorElement,
 } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Modal } from './modal';
 import styles from '../styles/burger-constructor.module.css';
+// import { data } from '../utils/data';
+
 
 export type BurgerConstructorProps = {
-  data: any
-  
+  data: any 
 }
 
 export const BurgerConstructor: React.FC<BurgerConstructorProps> = ({
   data
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  function handleCloseModal() {
+    setIsOpen(false);
+  }
+  
+  function handleOpenModal() {
+    setIsOpen(true);
+  }
+  
   return (
     <section className={styles.burgerConstructor}>
       <span className={styles.bunTop}>
@@ -59,9 +69,9 @@ export const BurgerConstructor: React.FC<BurgerConstructorProps> = ({
             {data.reduce((total: any, index: any) =>  total = total + index.price, 0 )}
             <CurrencyIcon type="primary" />
           </p>
-          <Button onClick={() => setIsOpen(true)} type="primary" size="large">Оформить заказ</Button>
-          <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-            Fancy Modal
+          <Button onClick={handleOpenModal} type="primary" size="large">Оформить заказ</Button>
+          <Modal open={isOpen} onCloseModal={handleCloseModal}>
+                BurgerConstructor...
           </Modal>
         </div>
     </section>

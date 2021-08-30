@@ -3,6 +3,8 @@ import React from "react";
 import { Tab, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from '../styles/burger-ingredients.module.css';
 
+// import { data } from '../utils/data';
+
 export type BurgerIngredientsProps = {
   data: any
 }
@@ -11,7 +13,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = ({
   data
 }) => {
   const [current, setCurrent] = React.useState('one')
-  console.log(data);
+  // console.log(data);
   return (
     <section className={styles.burgerIngredients}>
       <h1 className="text text_type_main-large mb-5">Соберите бургер</h1>
