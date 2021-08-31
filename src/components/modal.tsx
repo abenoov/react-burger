@@ -8,10 +8,13 @@ export type ModalProps = {
   children: any,
   open: boolean,
   onCloseModal: any,
-  title: String
+  title: String,
 }
 
 export const Modal: React.FC<ModalProps> = ({open, children, onCloseModal, title}) => {
+
+  // console.log("itemData", itemData)
+
   if (!open) return null
 
   const modalRoot = document.getElementById('portal');

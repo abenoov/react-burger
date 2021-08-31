@@ -5,7 +5,6 @@ import styles from '../styles/order-details.module.css';
 export type OrderDetailsProps = {}
 
 export const OrderDetails: React.FC<OrderDetailsProps> = () => {
-
   return(
     <div className={styles.orderDetails}>
       <span className={styles.orderId}>

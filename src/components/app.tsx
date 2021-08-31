@@ -41,8 +41,6 @@ export const App: React.FC<AppProps> = () => {
         <main className={styles.main} >
           {ingredients.success &&  <BurgerIngredients data={ingredients.data} /> }
           {ingredients.success && <BurgerConstructor data={ingredients.data} />}
-          {/* <BurgerIngredients />
-          <BurgerConstructor /> */}
           {isError && <div>Error fetching data.</div>}
         </main>
     </>

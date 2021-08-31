@@ -11,13 +11,12 @@ import styles from '../styles/burger-constructor.module.css';
 import OrderDetails from "./order-details";
 // import { data } from '../utils/data';
 
-
 export type BurgerConstructorProps = {
-  data: any 
+  data: any,
 }
 
 export const BurgerConstructor: React.FC<BurgerConstructorProps> = ({
-  data
+  data,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +27,7 @@ export const BurgerConstructor: React.FC<BurgerConstructorProps> = ({
   function handleOpenModal() {
     setIsOpen(true);
   }
-  
+
   return (
     <section className={styles.burgerConstructor}>
       <span className={styles.bunTop}>

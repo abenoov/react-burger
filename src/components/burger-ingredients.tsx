@@ -1,6 +1,9 @@
 import React from "react";
+import { useState } from "react";
 
 import { Tab, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import { Modal } from './modal';
+import IngredientDetails from "./ingredient-details";
 import styles from '../styles/burger-ingredients.module.css';
 // import { data } from '../utils/data';
 
@@ -13,6 +16,17 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = ({
 }) => {
   const [current, setCurrent] = React.useState('one')
   // console.log(data);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  function handleCloseModal() {
+    setIsOpen(false);
+  }
+  
+  function handleOpenModal(_id:any) {
+    setSelectedItem(data.filter((item:any) => item._id ==_id)[0])
+    setIsOpen(true);
+  }
   return (
     <section className={styles.burgerIngredients}>
       <h1 className="text text_type_main-large mb-5">Соберите бургер</h1>
@@ -35,6 +49,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = ({
               <div
                 key={filteredItems._id} 
                 className={styles.buns}
+                onClick={() => handleOpenModal(filteredItems._id)}
               >
                 <img alt="bun avatar" src={filteredItems.image} className="pl-4 pr-4" />
                 <p className={styles.price}>{filteredItems.price} <CurrencyIcon type="primary" /></p>
@@ -50,6 +65,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = ({
               <div
                 key={filteredItems._id} 
                 className={styles.buns}
+                onClick={() => handleOpenModal(filteredItems._id)}
               >
                 <img alt="sauce avatar"  src={filteredItems.image} className="pl-4 pr-4" />
                 <p className={styles.price}>{filteredItems.price} <CurrencyIcon type="primary" /></p>
@@ -65,6 +81,7 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = ({
               <div
                 key={filteredItems._id} 
                 className={styles.buns}
+                onClick={() => handleOpenModal(filteredItems._id)}
               >
                 <img alt="main avatar"  src={filteredItems.image} className="pl-4 pr-4" />
                 <p className={styles.price}>{filteredItems.price} <CurrencyIcon type="primary" /></p>
@@ -74,6 +91,13 @@ export const BurgerIngredients: React.FC<BurgerIngredientsProps> = ({
           }
         </div>
       </div>
+      <Modal
+        title="Детали ингредиента"
+        open={isOpen}
+        onCloseModal={handleCloseModal}
+      >
+        <IngredientDetails itemData={selectedItem}/>
+      </Modal>
     </section>
   );
 };

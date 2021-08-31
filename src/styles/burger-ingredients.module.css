@@ -35,6 +35,7 @@
   text-align: center;
   margin-left: 16px;
   margin-bottom: 40px;
+  cursor: pointer;
 }
 
 .price {

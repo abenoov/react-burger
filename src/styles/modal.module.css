@@ -1,11 +1,12 @@
 .modal {
   position: fixed;
-  top: 3%;
+  top: 50%;
   left: 30%;
   background-color: #1C1C21;
-  padding: 60px 40px; 
+  padding: 40px; 
   z-index: 1000;
   border-radius: 40px;
+  transform: translateY(-50%);
 }
 
 .modalHeader {
