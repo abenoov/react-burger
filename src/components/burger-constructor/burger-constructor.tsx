@@ -1,12 +1,35 @@
 import React from "react";
-import { ConstructorElement, DragIcon, CurrencyIcon, Button } from '@ya.praktikum/react-developer-burger-ui-components';
-import { data } from '../utils/data.js';
+import { useState } from "react";
 
-import styles from '../styles/burger-constructor.module.css';
+import { ConstructorElement, 
+         DragIcon, 
+         CurrencyIcon, 
+         Button 
+} from '@ya.praktikum/react-developer-burger-ui-components';
+import { Modal } from '../modal/modal';
+import styles from '../burger-constructor/burger-constructor.module.css';
+import OrderDetails from "../order-details/order-details";
+import { DataProps } from '../app/app';
+// import { data } from '../utils/data';
 
-export type BurgerConstructorProps = {}
+export type BurgerConstructorProps = {
+  data: DataProps[]
+}
 
-export const BurgerConstructor: React.FC<BurgerConstructorProps> = () => {
+export const BurgerConstructor: React.FC<BurgerConstructorProps> = ({
+  data,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const totalCost = data.reduce((total, index) =>  total = total + index.price, 0 );
+
+  function handleCloseModal() {
+    setIsOpen(false);
+  }
+  
+  function handleOpenModal() {
+    setIsOpen(true);
+  }
+
   return (
     <section className={styles.burgerConstructor}>
       <span className={styles.bunTop}>
@@ -45,10 +68,14 @@ export const BurgerConstructor: React.FC<BurgerConstructorProps> = () => {
         </span>
         <div className={styles.buttonWrapper}>
           <p className={styles.totalPrice}>
-            {data.reduce((total, index) =>  total = total + index.price, 0 )}
+            {totalCost}
             <CurrencyIcon type="primary" />
           </p>
-          <Button type="primary" size="large">Оформить заказ</Button>
+          <Button onClick={handleOpenModal} type="primary" size="large">Оформить заказ</Button>
+          {isOpen && (
+          <Modal open title="" onCloseModal={handleCloseModal}>
+            <OrderDetails />
+          </Modal>)}
         </div>
     </section>
   );
