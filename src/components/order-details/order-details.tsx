@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/order-details.module.css';
+import styles from '../order-details/order-details.module.css';
 
 export type OrderDetailsProps = {}
 

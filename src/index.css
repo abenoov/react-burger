@@ -22,12 +22,12 @@ code {
   font-family: 'Jet Brains Mono';
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/JetBrainsMono-Bold.woff2") format("woff2");
+  src: url("../src/fonts/JetBrainsMono-Bold.woff2") format("woff2");
 }
 
 @font-face {
   font-family: 'Jet Brains Mono';
   font-style: normal;
   font-weight: 300;
-  src: url("../fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  src: url("../src/fonts/JetBrainsMono-Regular.woff2") format("woff2");
 }

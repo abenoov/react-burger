@@ -1,10 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-import styles from '../styles/modal-overlay.module.css';
+import styles from '../modal-overlay/modal-overlay.module.css';
+
+const ECK_KEYCODE = 27
 
 export type ModalOverlayProps = {
-  onCloseModal: any
+  onCloseModal: () => void
 }
 
 export const ModalOverlay: React.FC<ModalOverlayProps> = ({
@@ -12,7 +14,7 @@ export const ModalOverlay: React.FC<ModalOverlayProps> = ({
 }) => {
 useEffect(() => {
   const close = (e:any) => {
-    if(e.keyCode === 27){
+    if(e.keyCode === ECK_KEYCODE){
       onCloseModal()
     }
   }

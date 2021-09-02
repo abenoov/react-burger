@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/ingredient-details.module.css';
+import styles from '../ingredient-details/ingredient-details.module.css';
 
 export type IngredientDetailsProps = {
   itemData: any

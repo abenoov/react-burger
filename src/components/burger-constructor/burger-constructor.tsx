@@ -6,19 +6,21 @@ import { ConstructorElement,
          CurrencyIcon, 
          Button 
 } from '@ya.praktikum/react-developer-burger-ui-components';
-import { Modal } from './modal';
-import styles from '../styles/burger-constructor.module.css';
-import OrderDetails from "./order-details";
+import { Modal } from '../modal/modal';
+import styles from '../burger-constructor/burger-constructor.module.css';
+import OrderDetails from "../order-details/order-details";
+import { DataProps } from '../app/app';
 // import { data } from '../utils/data';
 
 export type BurgerConstructorProps = {
-  data: any,
+  data: DataProps[]
 }
 
 export const BurgerConstructor: React.FC<BurgerConstructorProps> = ({
   data,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const totalCost = data.reduce((total, index) =>  total = total + index.price, 0 );
 
   function handleCloseModal() {
     setIsOpen(false);
@@ -41,7 +43,7 @@ export const BurgerConstructor: React.FC<BurgerConstructorProps> = ({
       </span>
       <div className={styles.element}>
         {
-          data.map((item: any, index: any) => index !== 0 && (
+          data.map((item, index) => index !== 0 && (
             <div key={item._id} className={styles.ingredientWrapper}>
               <DragIcon type="primary" />
               <span className={styles.ingredient}>
@@ -66,13 +68,14 @@ export const BurgerConstructor: React.FC<BurgerConstructorProps> = ({
         </span>
         <div className={styles.buttonWrapper}>
           <p className={styles.totalPrice}>
-            {data.reduce((total: any, index: any) =>  total = total + index.price, 0 )}
+            {totalCost}
             <CurrencyIcon type="primary" />
           </p>
           <Button onClick={handleOpenModal} type="primary" size="large">Оформить заказ</Button>
-          <Modal title="" open={isOpen} onCloseModal={handleCloseModal}>
+          {isOpen && (
+          <Modal open title="" onCloseModal={handleCloseModal}>
             <OrderDetails />
-          </Modal>
+          </Modal>)}
         </div>
     </section>
   );

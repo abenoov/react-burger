@@ -1,24 +1,20 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-import styles from '../styles/modal.module.css';
-import ModalOverlay from './modal-overlay';
+import styles from '../modal/modal.module.css';
+import ModalOverlay from '../modal-overlay/modal-overlay';
 
 export type ModalProps = {
-  children: any,
-  open: boolean,
-  onCloseModal: any,
-  title: String,
+  children: React.ReactNode
+  open: boolean
+  onCloseModal: () => void
+  title: string
 }
 
 export const Modal: React.FC<ModalProps> = ({open, children, onCloseModal, title}) => {
-
   // console.log("itemData", itemData)
-
   if (!open) return null
-
   const modalRoot = document.getElementById('portal');
-
   return (modalRoot ? createPortal(
     <>
       <ModalOverlay onCloseModal={onCloseModal}/>
